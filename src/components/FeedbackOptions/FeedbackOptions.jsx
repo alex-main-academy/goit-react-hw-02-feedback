@@ -1,33 +1,25 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import css from './FeedbackOptions.module.css';
+import { nanoid } from 'nanoid';
 
 class FeedbackOptions extends Component {
   render() {
-    const { onLeaveFeedback } = this.props;
+    const { onLeaveFeedback, options } = this.props;
     return (
       <>
-        <button
-          name="good"
-          onClick={onLeaveFeedback}
-          className={css.feedback__button}
-        >
-          Good
-        </button>
-        <button
-          name="neutral"
-          onClick={onLeaveFeedback}
-          className={css.feedback__button}
-        >
-          Neutral
-        </button>
-        <button
-          name="bad"
-          onClick={onLeaveFeedback}
-          className={css.feedback__button}
-        >
-          Bad
-        </button>
+        {Object.keys(options).map(item => {
+          return (
+            <button
+              name={item}
+              onClick={onLeaveFeedback}
+              className={css.feedback__button}
+              key={nanoid()}
+            >
+              {item}
+            </button>
+          );
+        })}
       </>
     );
   }

@@ -14,6 +14,7 @@ class Section extends Component {
 
 Section.propTypes = {
   title: PropTypes.string,
+  children: PropTypes.array,
 };
 
 export default Section;
