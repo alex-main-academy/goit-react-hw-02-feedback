@@ -27,6 +27,7 @@ class FeedbackOptions extends Component {
 
 FeedbackOptions.propTypes = {
   onLeaveFeedback: PropTypes.func,
+  options: PropTypes.shape(),
 };
 
 export default FeedbackOptions;
